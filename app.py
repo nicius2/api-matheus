@@ -1,5 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import pandas as pd
 import numpy as np
@@ -14,6 +15,15 @@ app = FastAPI(
     title="API de Previsão de Demanda e Otimização de Descongelamento",
     description="API para prever a demanda de produtos e otimizar o processo de descongelamento.",
     version="1.0.0"
+)
+
+# Configuração do CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Em produção, especifique os domínios permitidos
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # --- Funções do seu script (mantidas ou ligeiramente ajustadas) ---
