@@ -1,0 +1,11 @@
+# render.yaml
+services:
+  - type: web
+    name: api-descongelamento
+    env: python
+    # ATUALIZE ESTA LINHA: Inclua a instalação de dependências de sistema
+    buildCommand: apt-get update && apt-get install -y build-essential libblas-dev liblapack-dev gfortran && pip install -r requirements.txt
+    startCommand: uvicorn app:app --host 0.0.0.0 --port 8000
+    envVars:
+      - key: PORT
+        value: "8000"
