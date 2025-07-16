@@ -1,11 +1,10 @@
-# render.yaml
 services:
   - type: web
-    name: api-descongelamento
+    name: fastapi-previsao
     env: python
-    pythonVersion: 3.11.9 # <--- Mude para 3.11.9 (ou 3.12.x se preferir)
-    buildCommand: pip install --upgrade pip setuptools wheel && pip install -r requirements.txt
-    startCommand: uvicorn app:app --host 0.0.0.0 --port 8000
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app:app --host 0.0.0.0 --port 10000
+    plan: free
     envVars:
-      - key: PORT
-        value: "8000"
+      - key: PYTHON_VERSION
+        value: 3.10

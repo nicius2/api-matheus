@@ -240,6 +240,14 @@ async def generate_dashboard(product_id: int):
     # Se você *realmente* só quer o GET, pode apagar este bloco POST.
     raise HTTPException(status_code=501, detail="Endpoint de geração de dashboard temporariamente desativado para foco no GET.")
 
+
+
+# 👉 Adicione abaixo disso:
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("app:app", host="0.0.0.0", port=port, reload=False)
 # Para rodar a API localmente, você usaria:
+
 # uvicorn app:app --host 0.0.0.0 --port 8000 --reload
 # E então acessaria: http://localhost:8000/demand_info/{id_do_produto} (com um GET request)

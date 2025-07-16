@@ -1,0 +1,7 @@
+# Ignore ambientes virtuais e cache
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
